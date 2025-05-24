@@ -55,8 +55,6 @@ public:
         }
     }
 };
-
-// Validation helpers
 bool isValidNumber(const string& s, int requiredLength) {
     if (s.length() != requiredLength) return false;
     for (char c : s) {
@@ -70,14 +68,12 @@ bool isValidGmail(const string& email) {
     if (email.length() < domain.length()) return false;
     return email.substr(email.length() - domain.length()) == domain;
 }
-
-// Global Bank Balance Tracker
 double totalBankBalance = 0.0;
 
 int main() {
     string custId, name, email;
 
-    // Validate Customer ID (10 digits)
+    // Customer ID (10 digits)
     do {
         cout << "👤 Enter 10-digit customer ID: ";
         cin >> custId;
@@ -86,12 +82,11 @@ int main() {
         }
     } while (!isValidNumber(custId, 10));
 
-    cin.ignore(); // Clear newline from input buffer
+    cin.ignore(); 
 
     cout << "👤 Enter customer name: ";
     getline(cin, name);
 
-    // Validate Gmail ID (ends with @gmail.com)
     do {
         cout << "📧 Enter Gmail ID (must end with '@gmail.com'): ";
         getline(cin, email);
@@ -105,7 +100,6 @@ int main() {
     string accNum;
     double initialBalance;
 
-    // Validate Account Number (14 digits)
     do {
         cout << "\n🏦 Enter 14-digit account number: ";
         cin >> accNum;
